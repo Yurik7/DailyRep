@@ -1,0 +1,27 @@
+development:
+  sessions:
+    default:
+      database: rep_dev
+      hosts:
+        - localhost:27017
+      options:
+  options:
+    use_activesupport_time_zone: true
+    use_utc: false
+
+test:
+  sessions:
+    default:
+      database: rep_copy
+      hosts:
+        - localhost:27017
+
+production:
+  sessions:
+    default:
+      database: rep_prod
+      hosts:
+        - localhost:27017
+  options:
+    use_activesupport_time_zone: true
+    use_utc: false
