@@ -1,7 +1,13 @@
-module Brower
+module Browser
   class BrowserFactory
-    def browser
-      fail 'should be implemented in child'
+    def self.for entity
+      if entity.is_a? ::Entity::VarEntity
+        new VarBrowserService(entity)
+      elsif entity.is_a? ::Entity::EventEntity
+        new EventBrowserService(entity)
+      else
+        fail 'Unknown entity type!'
+      end
     end
   end
 end
