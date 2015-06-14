@@ -7,8 +7,8 @@ $LOAD_PATH.unshift("#{File.dirname(__FILE__)}")
 require 'environment'
 require 'boot'
 
-$LOAD_PATH.unshift("#{File.dirname(__FILE__)}/..")
+Dir['lib/dailyrep/*.rb'].each { |file| load file }
+Dir['lib/dailyrep/model/*.rb'].each { |file| load file }
+Dir['lib/dailyrep/model/entity/*.rb'].each { |file| load file }
 
-
-Dir["dailyrep/*.rb"].each {|file| require file }
-Dir["dailyrep/model/*.rb"].each {|file| require file }
+binding.pry

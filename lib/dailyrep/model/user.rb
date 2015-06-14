@@ -1,12 +1,9 @@
-module Model
-  class User
-    include Mongoid::Document
-    has_many :app_cofigurations
-    has_many :entities
+class User
+  include Mongoid::Document
+  has_many :configurations
+  has_many :pushbullets
 
-    field :full_name
-    field :password
-    field :token
+  field :full_name
+  field :email
 
-  end
 end
