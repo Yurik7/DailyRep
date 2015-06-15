@@ -1,5 +1,7 @@
-module Entity
-  class EventEntity < GenericEntity
+module Model
+  module Entity
+    class EventEntity < GenericEntity
 
+    end
   end
 end

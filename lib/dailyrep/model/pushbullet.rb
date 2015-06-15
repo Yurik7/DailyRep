@@ -1,7 +1,8 @@
-class Pushbullet
-  include Mongoid::Document
-  belongs_to :user
+module Model
+  class Pushbullet
+    include Mongoid::Document
+    belongs_to :user
 
-  field :token
-
+    field :token
+  end
 end

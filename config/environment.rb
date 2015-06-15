@@ -1,1 +1,0 @@
-ENV["MONGOID_ENV"] = 'development'

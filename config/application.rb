@@ -1,14 +1,16 @@
 require 'pry'
 require 'mongoid'
+require 'require_all'
+require 'json'
+require 'nokogiri'
+require 'open-uri'
+require 'net/http'
 
 
-$LOAD_PATH.unshift("#{File.dirname(__FILE__)}")
+require_all 'config'
 
-require 'environment'
-require 'boot'
+require_all 'lib'
 
-Dir['lib/dailyrep/*.rb'].each { |file| load file }
-Dir['lib/dailyrep/model/*.rb'].each { |file| load file }
-Dir['lib/dailyrep/model/entity/*.rb'].each { |file| load file }
-
-binding.pry
+entity = Model::Entity::Micex.last
+browser = Browser::BrowserFactory.for(entity)
+browser.process
