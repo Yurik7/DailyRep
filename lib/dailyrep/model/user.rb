@@ -1,7 +1,7 @@
 module Model
   class User
     include Mongoid::Document
-    has_many :configurations
+    embeds_one :configuration
     has_many :pushbullets
 
     field :full_name

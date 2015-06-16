@@ -2,7 +2,7 @@ module Model
   class Configuration
     include Mongoid::Document
 
-    belongs_to :user
+    embedded_in :user
 
     field :write_to_db, type: Boolean
     field :notify, type: Boolean
