@@ -1,5 +1,5 @@
 module Model
-  class Configuration
+  class UserConfig
     include Mongoid::Document
 
     embedded_in :user

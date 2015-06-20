@@ -1,44 +1,28 @@
 module Result
-  class VarResult
-    attr_reader :current, :start_point, :type, :time
+  class VarResult < ::Result::AbstractResult
+    attr_reader :current, :previous
 
     def initialize(current,
-                  start_point,
-                  notification_limit,
-                  parent_id,
-                  user_id,
-                  time = Time.now)
-      @current = current
-      @start_point = start_point
-      @notification_limit = notification_limit
-      @parent_id = parent_id
-      @time = time
-      @user_id = user_id
+                   previous,
+                   source_entity)
+      super(source_entity)
+      @current = current.to_f
+      @previous = previous.to_f
     end
 
     def notification_triggered?
-      @current_delta ||= (((current - start_point) * 100) / start_point)
+      @current_delta ||= (((current - previous) * 100) / previous)
                          .round(2)
-      @notification_limit < @current_delta
+      source_entity.delta_value < @current_delta
     end
 
     def save
       raise 'Is already saved' if @is_saved
       @is_saved = true
-      ::Model::History::VarHistory.create(to_json)
-    end
-
-    private
-
-    def to_json
-      {
-        user_id: @user_id,
-        parent_id: @parent_id,
-        current: current,
-        start_point: @start_point,
-        notification_limit: @notification_limit,
-        operation_time: @time
-      }.to_json
+      ::Model::History::VarRecord.create(
+        current: @current,
+        previous: @previous,
+        entity: @source_entity)
     end
   end
 end

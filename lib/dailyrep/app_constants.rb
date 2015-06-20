@@ -11,5 +11,4 @@ module AppConstants
   RESULT_PROCESS_TYPE_JSON = 'Json'
   RESULT_PROCESS_TYPE_HTTP = 'Http'
 
-
 end

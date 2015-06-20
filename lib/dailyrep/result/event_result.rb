@@ -1,5 +1,5 @@
 module Result
-  class EventResult
+  class EventResult < ::Result::AbstractResult
     def initialize(args)
 
     end
