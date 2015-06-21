@@ -6,7 +6,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'net/http'
 require 'washbullet'
-
+require 'resque'
 
 require_all 'config'
 require_all 'lib'
@@ -14,5 +14,5 @@ require_all 'lib'
 # entity = Model::Entity::Micex.last
 # browser = Browser::BrowserFactory.for(entity)
 # result = browser.process
-# # binding.pry
+# # # binding.pry
 # result.save

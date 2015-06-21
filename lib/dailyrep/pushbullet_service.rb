@@ -1,12 +1,11 @@
 class PushbulletService
 
   def initialize(token)
-    @client = Washbullet::Client.new(token)
+    @token = token
   end
 
   def notify(params)
-    @client.push_note(
-      receiver:   :device,
-      params: params)
+    binding.pry
+    Resque.enqueue(PushClientWorker, @token, params)
   end
 end

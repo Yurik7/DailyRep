@@ -5,8 +5,7 @@ module Model
     embedded_in :user
 
     field :write_to_db, type: Boolean
-    field :notify, type: Boolean
-    field :web_reload, type: Boolean
-    field :write_html, type: Boolean
+    field :push_notify, type: Boolean
+    field :mail_notify, type: Boolean
   end
 end

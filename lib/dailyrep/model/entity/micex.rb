@@ -18,7 +18,7 @@ module Model
       end
 
       def prepare_message(result)
-        # binding.pry
+        # # binding.pry
         {
           title: notif_template.title,
           body: notif_template.message.serial_replace('?', [
