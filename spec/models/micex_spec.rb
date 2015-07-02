@@ -1,4 +1,4 @@
-def fixtures
+ def fixtures
   @fixtures ||= YAML.load_file('spec/fixtures/micex.yml').symbolize_keys
 end
 

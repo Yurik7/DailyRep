@@ -1,4 +1,4 @@
-ENV["MONGOID_ENV"] = 'development'
+ENV['MONGOID_ENV'] = 'development'
 Mongoid.load!('./config/mongoid.yml')
 
 class String
@@ -7,7 +7,7 @@ class String
     shift = 0
     indexes.each_with_index do |val, i|
       self[val + shift] = array[i] if array[i]
-      shift += array[i].length-1
+      shift += array[i].length - 1
     end
     self
   end

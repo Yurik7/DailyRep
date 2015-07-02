@@ -32,5 +32,4 @@ class EntityRepService
     @push_service.notify(message) if config.push_notify && @push_service
     @mailer_service.notify(message) if config.mail_notify && @mailer_service
   end
-
 end
